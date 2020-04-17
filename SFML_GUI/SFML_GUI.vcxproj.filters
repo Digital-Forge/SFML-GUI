@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\test">
+      <UniqueIdentifier>{53587eb1-c9a7-471b-a897-023b49f6c4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB">
+      <UniqueIdentifier>{0e24feca-6f2b-4134-990e-921134f037cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB">
+      <UniqueIdentifier>{9017f534-1b4f-44c0-9962-9e138e9fe1d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\test">
+      <UniqueIdentifier>{9aa0a2b3-f6a3-47a6-a3f4-9b4a82ab2e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Base">
+      <UniqueIdentifier>{dce7aa2d-6e8a-48a7-90a9-ebeac853f9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Base">
+      <UniqueIdentifier>{acecb8c5-5f21-4418-ab6b-a9a7acc3d17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Elements">
+      <UniqueIdentifier>{4e4c2435-b427-4e0e-bc04-c630d93d8826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Elements">
+      <UniqueIdentifier>{7d91cd66-b115-4b92-812e-f005ab90a012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Mechanic">
+      <UniqueIdentifier>{1a35e6be-b86a-4ea4-b733-c044fd867f04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Mechanic">
+      <UniqueIdentifier>{83a510de-5395-4909-acb7-6346040f90a6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TEST\main.cpp">
+      <Filter>Pliki źródłowe\test</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\Base.cpp">
+      <Filter>Pliki źródłowe\LIB\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST\Test.cpp">
+      <Filter>Pliki źródłowe\test</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\Window.cpp">
+      <Filter>Pliki źródłowe\LIB\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\Element.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LIB\Base.h">
+      <Filter>Pliki nagłówkowe\LIB\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TEST\Test.h">
+      <Filter>Pliki nagłówkowe\test</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Window.h">
+      <Filter>Pliki nagłówkowe\LIB\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Element.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Util.hpp">
+      <Filter>Pliki nagłówkowe\LIB</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

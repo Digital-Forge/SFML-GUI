@@ -39,6 +39,20 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# SFML lib is big and DLL
+SFML/
+SFML_GUI/sfml-audio-2.dll
+SFML_GUI/sfml-audio-d-2.dll
+SFML_GUI/sfml-graphics-2.dll
+SFML_GUI/sfml-graphics-d-2.dll
+SFML_GUI/sfml-network-2.dll
+SFML_GUI/sfml-network-d-2.dll
+SFML_GUI/sfml-system-2.dll
+SFML_GUI/sfml-system-d-2.dll
+SFML_GUI/sfml-window-2.dll
+SFML_GUI/sfml-window-d-2.dll
+SFML_GUI/openal32.dll
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
