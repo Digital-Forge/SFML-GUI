@@ -58,7 +58,16 @@
       <Filter>Pliki źródłowe\LIB\Base</Filter>
     </ClCompile>
     <ClCompile Include="LIB\Element.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\LIB\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\Container.cpp">
+      <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\FontAlbum.cpp">
+      <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
+    </ClCompile>
+    <ClCompile Include="LIB\FunctionInterface.cpp">
+      <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,11 +80,20 @@
     <ClInclude Include="LIB\Window.h">
       <Filter>Pliki nagłówkowe\LIB\Base</Filter>
     </ClInclude>
-    <ClInclude Include="LIB\Element.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="LIB\Util.hpp">
       <Filter>Pliki nagłówkowe\LIB</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Element.h">
+      <Filter>Pliki nagłówkowe\LIB\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Container.h">
+      <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\FontAlbum.h">
+      <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\FunctionInterface.h">
+      <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
