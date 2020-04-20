@@ -39,9 +39,19 @@ void DF::Container::videoReset()
 	}
 }
 
-DF::Container* DF::Container::returnOrigin()
+DF::Container* DF::Container::returnOrigin(Base* object)
 {
-	return this;
+	Container* to_origin;
+	to_origin = dynamic_cast<Container*>(object);
+
+	if (to_origin == nullptr)
+	{
+		return nullptr;
+	}
+	else
+	{
+		return to_origin;
+	}
 }
 
 void DF::Container::add(Base* element)

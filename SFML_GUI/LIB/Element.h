@@ -1,7 +1,6 @@
 #pragma once
 #include "Base.h"
 #include "Window.h"
-#include "Util.hpp"
 
 
 namespace DF
@@ -18,7 +17,7 @@ namespace DF
 		double h;
 
 		bool active; // set other style	// default true
-		bool visible; // render off and activ = false  // // default true
+		bool visible; // render off and activ = false // default true
 
 	public:
 		Element(Window* window, double x, double y, double w, double h);
@@ -28,7 +27,7 @@ namespace DF
 		//virtual void event();
 		//virtual void show(); // drawing element
 
-		virtual Element* returnOrigin();
+		static Element* returnOrigin(Base* object);
 
 		//virtual void videoReset(); // if window change render size (VideoMode)
 

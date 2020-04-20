@@ -50,6 +50,11 @@ unsigned int DF::Window::getVideoHeight()
 	return vm.height;
 }
 
+double DF::Window::getVideoDiagonal()
+{
+	return sqrt((double)vm.height * (double)vm.width);
+}
+
 void DF::Window::setFPS(unsigned int fps)
 {
 	window->setFramerateLimit(fps);

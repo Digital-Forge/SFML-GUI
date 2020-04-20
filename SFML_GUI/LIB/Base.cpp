@@ -16,9 +16,19 @@ void DF::Base::show()
 {
 }
 
-DF::Base* DF::Base::returnOrigin()
+DF::Base* DF::Base::returnOrigin(Base* object)
 {
-	return this;
+	Base* to_origin;
+	to_origin = dynamic_cast<Base*>(object);
+
+	if (to_origin == nullptr)
+	{
+		return nullptr;
+	}
+	else
+	{
+		return to_origin;
+	}
 }
 
 void DF::Base::videoReset()

@@ -43,6 +43,24 @@
     <Filter Include="Pliki źródłowe\LIB\Mechanic">
       <UniqueIdentifier>{83a510de-5395-4909-acb7-6346040f90a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Elements\Designe">
+      <UniqueIdentifier>{3f1db750-e471-4ae4-bff5-2a087e51e4f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Elements\Active">
+      <UniqueIdentifier>{00775c0c-0e5a-40ea-9754-2121f85a0993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\LIB\Elements\Interactive">
+      <UniqueIdentifier>{fbb195c0-1c7e-464e-9330-9ee85ffbccaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Elements\Active">
+      <UniqueIdentifier>{6dce2ec7-3636-4ee0-8a38-06528e39bac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Elements\Designe">
+      <UniqueIdentifier>{14718170-67d1-410a-af9d-1c7c074b969a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\LIB\Elements\Interactive">
+      <UniqueIdentifier>{c564c883-d318-4aa2-9ab2-ed6892c425e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TEST\main.cpp">
@@ -69,6 +87,9 @@
     <ClCompile Include="LIB\FunctionInterface.cpp">
       <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\Button.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -79,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="LIB\Window.h">
       <Filter>Pliki nagłówkowe\LIB\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="LIB\Util.hpp">
-      <Filter>Pliki nagłówkowe\LIB</Filter>
     </ClInclude>
     <ClInclude Include="LIB\Element.h">
       <Filter>Pliki nagłówkowe\LIB\Base</Filter>
@@ -94,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="LIB\FunctionInterface.h">
       <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Button.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

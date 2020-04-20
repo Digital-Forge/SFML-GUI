@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 
-namespace CK
+namespace DF
 {
 	//typedef FunctionInterface Fun_IF;
 
@@ -22,8 +22,8 @@ namespace CK
 	public:
 		const bool getDelete;
 
-		FunctionInterface(std::function<void()> function, bool set_delete = true); // use -> FI(std::bind(&CLASS::METHOD, &OBJECT))
-		FunctionInterface(void (*function)(), bool set_delete = true);
+		FunctionInterface(std::function<void()> function, bool set_delete = true); // use for method with class -> FI(std::bind(&CLASS::METHOD, &OBJECT))
+		FunctionInterface(void (*function)(), bool set_delete = true); // use for normal function -> FI(function)
 
 		void function(); // to play functions
 	};

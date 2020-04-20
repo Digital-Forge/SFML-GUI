@@ -21,7 +21,7 @@ namespace DF
 		void event();
 		void show();
 		void videoReset();
-		Container* returnOrigin();
+		static Container* returnOrigin(Base* object);
 
 		// ### more ###
 		void add(Base* element);

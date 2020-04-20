@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LIB\Base.cpp" />
+    <ClCompile Include="LIB\Button.cpp" />
     <ClCompile Include="LIB\Container.cpp" />
     <ClCompile Include="LIB\Element.cpp" />
     <ClCompile Include="LIB\FontAlbum.cpp" />
@@ -30,11 +31,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h" />
+    <ClInclude Include="LIB\Button.h" />
     <ClInclude Include="LIB\Container.h" />
     <ClInclude Include="LIB\Element.h" />
     <ClInclude Include="LIB\FontAlbum.h" />
     <ClInclude Include="LIB\FunctionInterface.h" />
-    <ClInclude Include="LIB\Util.hpp" />
     <ClInclude Include="LIB\Window.h" />
     <ClInclude Include="TEST\Test.h" />
   </ItemGroup>

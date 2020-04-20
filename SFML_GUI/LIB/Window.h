@@ -1,17 +1,13 @@
 #pragma once
 #include <iostream>
+#include <math.h>
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
-#include "Element.h"
-#include "Util.hpp"
-
-extern class Element;
 
 namespace DF
 {
 	class Window
 	{
-		friend class Element;
 	protected:
 		sf::VideoMode vm;
 		std::string title;
@@ -19,6 +15,7 @@ namespace DF
 		sf::RenderWindow* window;
 
 	public:
+		
 		// base options
 		Window(unsigned int width, unsigned int height, sf::String titel);
 		~Window();
@@ -32,6 +29,7 @@ namespace DF
 		// more option
 		unsigned int getVideoWidth();
 		unsigned int getVideoHeight();
+		double getVideoDiagonal();
 
 		void setFPS(unsigned int fps);
 

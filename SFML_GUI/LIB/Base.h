@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <exception>
 
 namespace DF
 {
@@ -13,7 +14,7 @@ namespace DF
 		virtual void event();
 		virtual void show(); // drawing element
 
-		virtual Base* returnOrigin(); 
+		static Base* returnOrigin(Base* object); 
 
 		virtual void videoReset(); // if window change render size (VideoMode)
 	};

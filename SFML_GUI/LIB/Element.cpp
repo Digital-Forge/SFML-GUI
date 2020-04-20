@@ -16,9 +16,19 @@ DF::Element::~Element()
 {
 }
 
-DF::Element* DF::Element::returnOrigin()
+DF::Element* DF::Element::returnOrigin(Base* object)
 {
-	return this;
+	Element* to_origin;
+	to_origin = dynamic_cast<Element*>(object);
+
+	if (to_origin == nullptr)
+	{
+		return nullptr;
+	}
+	else
+	{
+		return to_origin;
+	}
 }
 
 void DF::Element::setPosition(double x, double y)
@@ -58,3 +68,4 @@ bool DF::Element::getVisible()
 {
 	return visible;
 }
+

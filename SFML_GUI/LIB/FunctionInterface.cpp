@@ -1,6 +1,6 @@
 #include "FunctionInterface.h"
 
-CK::FunctionInterface::FunctionInterface(std::function<void()> function, bool set_delete) :
+DF::FunctionInterface::FunctionInterface(std::function<void()> function, bool set_delete) :
 	class_function(true),
 	getDelete(set_delete),
 	func(function),
@@ -8,14 +8,14 @@ CK::FunctionInterface::FunctionInterface(std::function<void()> function, bool se
 {
 }
 
-CK::FunctionInterface::FunctionInterface(void(*function)(), bool set_delete) :
+DF::FunctionInterface::FunctionInterface(void(*function)(), bool set_delete) :
 	class_function(false),
 	getDelete(set_delete),
 	wsk_fun(function)
 {
 }
 
-void CK::FunctionInterface::function()
+void DF::FunctionInterface::function()
 {
 	if (class_function)
 	{
@@ -23,7 +23,7 @@ void CK::FunctionInterface::function()
 	}
 	else
 	{
-		if (wsk_fun != NULL)
+		if (wsk_fun != nullptr)
 		{
 			wsk_fun();
 		}
