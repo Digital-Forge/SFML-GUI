@@ -1,6 +1,6 @@
 #include "Window.h"
 
-DF::Window::Window(unsigned int width, unsigned int height, sf::String titel) :
+DF::Window::Window(unsigned int width, unsigned int height, sf::String titel):
 	vm(width, height),
 	title(title),
 	fullscreen(false),

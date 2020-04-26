@@ -90,6 +90,9 @@
     <ClCompile Include="LIB\Button.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\Text.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Active</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="LIB\Button.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Text.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Active</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "Button.h"
 
 
-DF::Button::Style::Style() :
+DF::Button::Style::Style():
 	active_rect_color(0xC6C6C6FF),
 	inactive_rect_color(0xDDDD80),
 	active_outline_color(sf::Color::Black),
@@ -82,9 +82,9 @@ void DF::Button::Style::setStyle(Button* object)
 	}
 }
 
-DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, DF::Button::Style* style) :
+DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, DF::Button::Style* style):
 	Element(window, x, y, w, h),
-	graf_config(style),
+	graphic_config(style),
 	fun_IF(nullptr),
 	buff(false)
 {
@@ -159,7 +159,7 @@ void DF::Button::videoReset()
 	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
 	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
-	rect.setOutlineThickness(graf_config->outline_size * window->getVideoDiagonal() * 0.01);
+	rect.setOutlineThickness(graphic_config->outline_size * window->getVideoDiagonal() * 0.01);
 }
 
 void DF::Button::setPosition(double x, double y)
@@ -173,7 +173,13 @@ void DF::Button::move(double x, double y)
 {
 	this->x += x;
 	this->y += y;
-	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	rect.setPosition(window->getVideoWidth() * (this->x * 0.01), window->getVideoHeight() * (this->y * 0.01));
+}
+
+void DF::Button::setActive(bool a)
+{
+	active = a;
+	graphic_config->setStyle(this);
 }
 
 void DF::Button::setSize(double width, double height)
@@ -182,12 +188,6 @@ void DF::Button::setSize(double width, double height)
 	h = height;
 	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
-}
-
-void DF::Button::setActive(bool a)
-{
-	active = a;
-	graf_config->setStyle(this);
 }
 
 bool DF::Button::isPress()
@@ -215,7 +215,13 @@ bool DF::Button::isPress()
 
 void DF::Button::resetStyle()
 {
-	graf_config->setStyle(this);
+	graphic_config->setStyle(this);
+}
+
+void DF::Button::setStyle(Button::Style* style)
+{
+	graphic_config = style;
+	resetStyle();
 }
 
 void DF::Button::setFunction(FunctionInterface* function)
@@ -226,10 +232,3 @@ void DF::Button::setFunction(FunctionInterface* function)
 	}
 	fun_IF = function;
 }
-
-void DF::Button::setStyle(Button::Style* style)
-{
-	graf_config = style;
-	resetStyle();
-}
-

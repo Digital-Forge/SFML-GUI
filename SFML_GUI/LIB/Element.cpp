@@ -1,6 +1,6 @@
 #include "Element.h"
 
-DF::Element::Element(Window* window, double x, double y, double w, double h) :
+DF::Element::Element(Window* window, double x, double y, double w, double h):
 	Base(),
 	window(window),
 	x(x),
@@ -41,12 +41,6 @@ void DF::Element::move(double x, double y)
 {
 	this->x += x;
 	this->y += y;
-}
-
-void DF::Element::setSize(double width, double height)
-{
-	w = width;
-	h = height;
 }
 
 void DF::Element::setActive(bool a)

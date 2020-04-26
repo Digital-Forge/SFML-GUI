@@ -36,7 +36,6 @@ namespace DF
 		// position & size config
 		virtual void setPosition(double x, double y);
 		virtual void move(double x, double y);
-		virtual void setSize(double width, double height);
 
 
 		// activ & visible config

@@ -1,6 +1,6 @@
 #include "FunctionInterface.h"
 
-DF::FunctionInterface::FunctionInterface(std::function<void()> function, bool set_delete) :
+DF::FunctionInterface::FunctionInterface(std::function<void()> function, bool set_delete):
 	class_function(true),
 	getDelete(set_delete),
 	func(function),
@@ -8,7 +8,7 @@ DF::FunctionInterface::FunctionInterface(std::function<void()> function, bool se
 {
 }
 
-DF::FunctionInterface::FunctionInterface(void(*function)(), bool set_delete) :
+DF::FunctionInterface::FunctionInterface(void(*function)(), bool set_delete):
 	class_function(false),
 	getDelete(set_delete),
 	wsk_fun(function)

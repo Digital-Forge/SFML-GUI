@@ -1,10 +1,9 @@
 #pragma once
 #include "Element.h"
-#include "FunctionInterface.h"
 
 namespace DF
 {
-	class Button :
+	class Text :
 		public Element
 	{
 	protected:
@@ -21,30 +20,53 @@ namespace DF
 		//bool visible; // render off and activ = false  // default true
 
 		// ### more ###
-		sf::RectangleShape rect;
-		sf::Vector2f mouse_poz;
-		bool buff; // buffored pressed button to not repeted
-		FunctionInterface* fun_IF;
+		sf::Text txt;
+
+		bool last_set_text; // 0 - setText  ;  1 - setGlobalText
+		sf::String text[2];
 
 	public:
 		class Style
 		{
-			friend class Button;
+			friend class Text;
 		private:
 			// active true
-			sf::Color active_rect_color;
+			sf::Color active_text_color;
 			sf::Color active_outline_color;
-			
+
 			// active false
-			sf::Color inactive_rect_color;
+			sf::Color inactive_text_color;
 			sf::Color inactive_outline_color;
 			//all
+			sf::Font* font;
 			double outline_size;
+			double font_size;
+			double level_correct;
+
+		public:
+			enum class Hook
+			{
+				left,
+				center,
+				right
+			};
+		private:
+			Hook hook;
 		public:
 			Style();
 			~Style();
 
 			// get & set element style
+			void setFont(sf::Font* font);
+			void setCorrectLevel(double level);
+			double getCorrectLevel();
+
+			void setTextSize(double size);
+			double getTextSize();
+
+			void setHook(Style::Hook hook);
+			Style::Hook getHook();
+
 			void setActiveColor(sf::Color color);
 			sf::Color getActiveColor();
 
@@ -61,23 +83,23 @@ namespace DF
 			double getOutlineSize();
 
 		private:
-			void setStyle(Button* object);
+			void setStyle(Text* object);
 		};
 
 		static Style defoult_style;
 
 	protected:
-		DF::Button::Style* graphic_config;
+		DF::Text::Style* graphic_config;
 
 	public:
-		Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, Button::Style* style = &Button::defoult_style);
-		~Button();
+		Text(Window* window, double x, double y, sf::String text, Text::Style* style = &Text::defoult_style);
+		~Text();
 
 		// ### Base Class ###
-		void event();
+		//void event();
 		void show(); // drawing element
 
-		static Button* returnOrigin(Base* object);
+		static Text* returnOrigin(Base* object);
 
 		void videoReset(); // if window change render size (VideoMode)
 
@@ -93,15 +115,11 @@ namespace DF
 		//void setVisible(bool a);
 		//bool getVisible();
 
-
 		// ### more ###
-		void setSize(double width, double height);
-
-		bool isPress();
+		void _setText(sf::String text);			// change single text
+		void setGlobalText(sf::String text);	// change text with reposition
 
 		void resetStyle();
-		void setStyle(Button::Style* style);
-
-		void setFunction(FunctionInterface* function);
+		void setStyle(Text::Style* style);
 	};
 }

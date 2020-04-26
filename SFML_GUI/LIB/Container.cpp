@@ -1,6 +1,6 @@
 #include "Container.h"
 
-DF::Container::Container(bool active) :
+DF::Container::Container(bool active):
 	active(active)
 {
 }
