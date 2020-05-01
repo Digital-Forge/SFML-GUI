@@ -70,7 +70,7 @@ namespace DF
 		DF::Button::Style* graphic_config;
 
 	public:
-		Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, Button::Style* style = &Button::defoult_style);
+		Button(Window* window, double x, double y, double w, double h, FunctionInterface* function = nullptr, Button::Style* style = &Button::defoult_style);
 		~Button();
 
 		// ### Base Class ###

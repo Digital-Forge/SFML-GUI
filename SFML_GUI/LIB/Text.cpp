@@ -11,12 +11,10 @@ DF::Text::Style::Style() :
 	level_correct(0.9),
 	hook(Style::Hook::center)
 {
-
 }
 
 DF::Text::Style::~Style()
 {
-
 }
 
 DF::Text::Style DF::Text::defoult_style;

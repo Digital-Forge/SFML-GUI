@@ -26,6 +26,7 @@
     <ClCompile Include="LIB\FontAlbum.cpp" />
     <ClCompile Include="LIB\FunctionInterface.cpp" />
     <ClCompile Include="LIB\Text.cpp" />
+    <ClCompile Include="LIB\TxButton.cpp" />
     <ClCompile Include="LIB\Window.cpp" />
     <ClCompile Include="TEST\main.cpp" />
     <ClCompile Include="TEST\Test.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="LIB\FontAlbum.h" />
     <ClInclude Include="LIB\FunctionInterface.h" />
     <ClInclude Include="LIB\Text.h" />
+    <ClInclude Include="LIB\TxButton.h" />
     <ClInclude Include="LIB\Window.h" />
     <ClInclude Include="TEST\Test.h" />
   </ItemGroup>

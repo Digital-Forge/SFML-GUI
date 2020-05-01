@@ -3,7 +3,7 @@
 
 DF::Button::Style::Style():
 	active_rect_color(0xC6C6C6FF),
-	inactive_rect_color(0xDDDD80),
+	inactive_rect_color(0xDDDDDD80),
 	active_outline_color(sf::Color::Black),
 	inactive_outline_color(sf::Color::Black),
 	outline_size(0.0)
@@ -82,7 +82,7 @@ void DF::Button::Style::setStyle(Button* object)
 	}
 }
 
-DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, DF::Button::Style* style):
+DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, Button::Style* style) :
 	Element(window, x, y, w, h),
 	graphic_config(style),
 	fun_IF(nullptr),
