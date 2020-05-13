@@ -3,18 +3,38 @@
 Test::Test()
 {
 	window = new DF::Window(1280, 720, "test");
-	a = new DF::Button::Style();
-	b1 = new DF::Button(window, 50, 50, 25, 25, new DF::FunctionInterface(std::bind(&Test::fun1, this)), a);
-	b2 = new DF::Button(window, 25, 25, 25, 25, new DF::FunctionInterface(std::bind(&Test::fun2, this)));
 	
-	wsk = b1;
+	num = 0;
+
+	fonts.add("TEST/Verdana.ttf");
+
+	button_style.setOutlineSize(0.1);
+	button_style.setActiveOutlineColor(sf::Color::Red);
+	button_style.setActiveColor(sf::Color::Yellow);
+
+	tx_button_style.setFont(fonts.getFont(0));
+	tx_button_style.setActiveButtonColor(sf::Color::Black);
+	tx_button_style.setActiveTextColor(sf::Color::Green);
+
+	text_style.setFont(fonts.getFont(0));
+	text_style.setHook(DF::Text::Style::Hook::right);
+	text_style.setTextSize(5);
+	
+
+	box.add(new DF::Button(window, 7, 4, 10, 5, new DF::FunctionInterface(std::bind(&Test::buttonNum, this)), &button_style));
+	box.add(new DF::Button(window, 7, 10, 10, 5, new DF::FunctionInterface(std::bind(&Test::buttonTextMove, this))));
+
+	box.add(new DF::TxButton(window, 7, 16, 10, 5, "button1", new DF::FunctionInterface(std::bind(&Test::button1SetActive, this)), &tx_button_style));
+	box.add(new DF::TxButton(window, 7, 22, 10, 5, "test button 2", new DF::FunctionInterface(std::bind(&Test::Button2MoveIt, this)), &tx_button_style));
+
+	box.add(new DF::Text(window, 99, 4, std::to_string(num), &text_style));
+	box.add(new DF::Text(window, 99, 10, std::to_string(num), &text_style));
+
 }
 
 Test::~Test()
 {
-	delete a;
-	delete b1;
-	delete b2;
+	box.deleteALL();
 	delete window;
 }
 
@@ -32,24 +52,30 @@ void Test::loop()
 			if (event.type == sf::Event::Closed)
 				window->_getWindow()->close();
 		}
-
-		wsk->event();
-		b2->event();
-
-		wsk->show();
-		b2->show();
+		box.event();
+		
+		box.show();
 		window->display(sf::Color::White);
 	}
 }
 
-void Test::fun1()
+void Test::buttonNum()
 {
-	a->setOutlineSize(a->getOutlineSize() + 1.0);
-	DF::Button::returnOrigin(wsk)->resetStyle();
+	DF::Text::returnOrigin(box.combo[4])->setGlobalText(std::to_string(++num));
 }
 
-void Test::fun2()
+void Test::buttonTextMove()
 {
-	b2->setActive(false);
-	std::cout << "ELO  ";
+	DF::Text::returnOrigin(box.combo[4])->move(-0.1, 0.05);
+}
+
+void Test::button1SetActive()
+{
+	DF::Text::returnOrigin(box.combo[4])->setActive(!DF::Text::returnOrigin(box.combo[4])->getActive());
+	DF::Button::returnOrigin(box.combo[0])->setActive(!DF::Button::returnOrigin(box.combo[0])->getActive());
+}
+
+void Test::Button2MoveIt()
+{
+	DF::Button::returnOrigin(box.combo[3])->move(-0.1, 0);
 }

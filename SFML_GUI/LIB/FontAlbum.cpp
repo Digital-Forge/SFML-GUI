@@ -15,15 +15,15 @@ DF::FontAlbum::~FontAlbum()
 
 bool DF::FontAlbum::add(sf::String path)
 {
-	combo.push_back(new sf::Font());
+	combo.push_back(new sf::Font);
 
-	if (combo[combo.size()]->loadFromFile(path))
+	if (combo[combo.size() - 1]->loadFromFile(path))
 	{
 		return true;
 	}
 	else
 	{
-		delete combo[combo.size()];
+		delete combo[combo.size() - 1];
 		combo.pop_back();
 		return false;
 	}
@@ -36,5 +36,9 @@ void DF::FontAlbum::add(sf::Font* font)
 
 sf::Font* DF::FontAlbum::getFont(unsigned short i)
 {
-	return combo.at(i);
+	if (combo.size() > i)
+	{
+		return combo[i];
+	}
+	return nullptr;
 }

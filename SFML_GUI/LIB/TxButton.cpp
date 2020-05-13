@@ -10,10 +10,10 @@ DF::TxButton::Style::Style():
 	inactive_text_color(sf::Color::Black),
 	inactive_text_outline_color(sf::Color::Black),
 	font(nullptr),
-	level_correct(1),
-	text_outline_size(0),
-	rect_outline_size(0),
-	distance_from_edge(0.75)
+	level_correct(1.7),
+	text_outline_size(0.0),
+	rect_outline_size(0.0),
+	distance_from_edge(0.8)
 {
 }
 
@@ -171,7 +171,7 @@ void DF::TxButton::Style::setStyle(TxButton* object)
 }
 
 DF::TxButton::TxButton(Window* window, double x, double y, double w, double h, sf::String text, FunctionInterface* function, TxButton::Style* style):
-	Button(window, x, y, w, h, function, nullptr),
+	Button(window, x, y, w, h, function),
 	graphic_config(style),
 	txt()
 {
@@ -210,7 +210,11 @@ DF::TxButton* DF::TxButton::returnOrigin(Base* object)
 
 void DF::TxButton::videoReset()
 {
-	Button::videoReset();
+	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
+	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
+	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	rect.setOutlineThickness(graphic_config->rect_outline_size * window->getVideoDiagonal() * 0.01);
+
 	textReset();
 }
 
@@ -246,7 +250,7 @@ void DF::TxButton::resetStyle()
 
 void DF::TxButton::setStyle(TxButton::Style* style)
 {
-	graphic_config = style;
+	this->graphic_config = style;
 }
 
 void DF::TxButton::setText(sf::String text)
@@ -258,7 +262,7 @@ void DF::TxButton::setText(sf::String text)
 void DF::TxButton::textReset()
 {
 	txt.setCharacterSize(rect.getSize().y);
-	txt.setOrigin(txt.getGlobalBounds().width * 0.5, txt.getGlobalBounds().height * 0.5);
+	txt.setOrigin(txt.getLocalBounds().width * 0.5, txt.getLocalBounds().height * 0.5);
 	txt.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
 
 	while ((txt.getLocalBounds().left < Button::rect.getLocalBounds().left) ||
@@ -267,8 +271,10 @@ void DF::TxButton::textReset()
 		   (txt.getLocalBounds().top + txt.getLocalBounds().height > Button::rect.getLocalBounds().top + Button::rect.getLocalBounds().height))
 	{
 		txt.setCharacterSize(txt.getCharacterSize() - 1);
+		txt.setOrigin(txt.getLocalBounds().width * 0.5, txt.getLocalBounds().height * 0.5);
 	}
 
 	txt.setCharacterSize(txt.getCharacterSize() * graphic_config->_setDistanceFromEdge());
-	txt.setOrigin(txt.getOrigin().x, txt.getOrigin().y * graphic_config->getCorrectLevel());
+	txt.setOrigin(txt.getLocalBounds().width * 0.5, txt.getLocalBounds().height * 0.5 * graphic_config->getCorrectLevel());
+	txt.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
 }

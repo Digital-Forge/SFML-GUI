@@ -1,24 +1,33 @@
 #pragma once
 #include "LIB/Window.h"
 #include "LIB/Button.h"
+#include "LIB/Container.h"
+#include "LIB/FontAlbum.h"
+#include "LIB/Text.h"
+#include "LIB/TxButton.h"
 
 class Test
 {
-	DF::Button::Style* a;
 	DF::Window* window;
 
-	DF::Button* b1;
-	DF::Button* b2;
+	DF::Button::Style button_style;
+	DF::TxButton::Style tx_button_style;
+	DF::Text::Style text_style;
+	
+	DF::Container box;
+	DF::FontAlbum fonts;
 
-	DF::Base* wsk;
+	int num;
 
 public:
 	Test();
 	~Test();
 	void loop();
 
-	void fun1();
+	void buttonNum();
+	void buttonTextMove();
 
-	void fun2();
+	void button1SetActive();
+	void Button2MoveIt();
 };
 

@@ -7,7 +7,7 @@ DF::Text::Style::Style() :
 	inactive_outline_color(0x7F7F7FFF),
 	font(nullptr),
 	outline_size(0),
-	font_size(1.0),
+	font_size(5.0),
 	level_correct(0.9),
 	hook(Style::Hook::center)
 {
