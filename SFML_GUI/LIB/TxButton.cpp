@@ -170,7 +170,7 @@ void DF::TxButton::Style::setStyle(TxButton* object)
 	}
 }
 
-DF::TxButton::TxButton(Window* window, double x, double y, double w, double h, sf::String text, FunctionInterface* function, TxButton::Style* style):
+DF::TxButton::TxButton(Window* window, double x, double y, double w, double h, sf::String text, FunctionInterface<>* function, TxButton::Style* style):
 	Button(window, x, y, w, h, function),
 	graphic_config(style),
 	txt()

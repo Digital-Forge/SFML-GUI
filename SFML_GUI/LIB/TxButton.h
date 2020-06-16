@@ -109,7 +109,7 @@ namespace DF
 		DF::TxButton::Style* graphic_config;
 
 	public:
-		TxButton(Window* window, double x, double y, double w, double h, sf::String text = "", FunctionInterface* function = nullptr, TxButton::Style* style = &TxButton::defoult_style);
+		TxButton(Window* window, double x, double y, double w, double h, sf::String text = "", FunctionInterface<>* function = nullptr, TxButton::Style* style = &TxButton::defoult_style);
 		~TxButton();
 
 		// ### Base Class ###

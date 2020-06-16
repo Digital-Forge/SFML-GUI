@@ -30,4 +30,3 @@ public:
 	void button1SetActive();
 	void Button2MoveIt();
 };
-

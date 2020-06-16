@@ -63,14 +63,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TEST\main.cpp">
-      <Filter>Pliki źródłowe\test</Filter>
-    </ClCompile>
     <ClCompile Include="LIB\Base.cpp">
       <Filter>Pliki źródłowe\LIB\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="TEST\Test.cpp">
-      <Filter>Pliki źródłowe\test</Filter>
     </ClCompile>
     <ClCompile Include="LIB\Window.cpp">
       <Filter>Pliki źródłowe\LIB\Base</Filter>
@@ -84,9 +78,6 @@
     <ClCompile Include="LIB\FontAlbum.cpp">
       <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
     </ClCompile>
-    <ClCompile Include="LIB\FunctionInterface.cpp">
-      <Filter>Pliki źródłowe\LIB\Mechanic</Filter>
-    </ClCompile>
     <ClCompile Include="LIB\Button.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
     </ClCompile>
@@ -96,13 +87,19 @@
     <ClCompile Include="LIB\TxButton.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\CheckBox.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST\Test.cpp">
+      <Filter>Pliki źródłowe\test</Filter>
+    </ClCompile>
+    <ClCompile Include="TEST\main.cpp">
+      <Filter>Pliki źródłowe\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
       <Filter>Pliki nagłówkowe\LIB\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="TEST\Test.h">
-      <Filter>Pliki nagłówkowe\test</Filter>
     </ClInclude>
     <ClInclude Include="LIB\Window.h">
       <Filter>Pliki nagłówkowe\LIB\Base</Filter>
@@ -116,9 +113,6 @@
     <ClInclude Include="LIB\FontAlbum.h">
       <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
     </ClInclude>
-    <ClInclude Include="LIB\FunctionInterface.h">
-      <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
-    </ClInclude>
     <ClInclude Include="LIB\Button.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
     </ClInclude>
@@ -127,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="LIB\TxButton.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\CheckBox.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
+    </ClInclude>
+    <ClInclude Include="TEST\Test.h">
+      <Filter>Pliki nagłówkowe\test</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\FunctionInterface.h">
+      <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

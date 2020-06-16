@@ -21,11 +21,11 @@ Test::Test()
 	text_style.setTextSize(5);
 	
 
-	box.add(new DF::Button(window, 7, 4, 10, 5, new DF::FunctionInterface(std::bind(&Test::buttonNum, this)), &button_style));
-	box.add(new DF::Button(window, 7, 10, 10, 5, new DF::FunctionInterface(std::bind(&Test::buttonTextMove, this))));
+	box.add(new DF::Button(window, 7, 4, 10, 5, new DF::FunctionInterface<>(&Test::buttonNum, this, true), &button_style));
+	box.add(new DF::Button(window, 7, 10, 10, 5, new DF::FunctionInterface<>(&Test::buttonTextMove, this, true)));
 
-	box.add(new DF::TxButton(window, 7, 16, 10, 5, "button1", new DF::FunctionInterface(std::bind(&Test::button1SetActive, this)), &tx_button_style));
-	box.add(new DF::TxButton(window, 7, 22, 10, 5, "test button 2", new DF::FunctionInterface(std::bind(&Test::Button2MoveIt, this)), &tx_button_style));
+	box.add(new DF::TxButton(window, 7, 16, 10, 5, "button1", new DF::FunctionInterface<>(&Test::button1SetActive, this, true), &tx_button_style));
+	box.add(new DF::TxButton(window, 7, 22, 10, 5, "test button 2", new DF::FunctionInterface<>(&Test::Button2MoveIt, this, true), &tx_button_style));
 
 	box.add(new DF::Text(window, 99, 4, std::to_string(num), &text_style));
 	box.add(new DF::Text(window, 99, 10, std::to_string(num), &text_style));

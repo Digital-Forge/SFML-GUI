@@ -24,7 +24,7 @@ namespace DF
 		sf::RectangleShape rect;
 		sf::Vector2f mouse_poz;
 		bool buff; // buffored pressed button to not repeted
-		FunctionInterface* fun_IF;
+		FunctionInterface<>* fun_IF;
 
 	public:
 		class Style
@@ -70,7 +70,7 @@ namespace DF
 		DF::Button::Style* graphic_config;
 
 	public:
-		Button(Window* window, double x, double y, double w, double h, FunctionInterface* function = nullptr, Button::Style* style = &Button::defoult_style);
+		Button(Window* window, double x, double y, double w, double h, FunctionInterface<>* function = nullptr, Button::Style* style = &Button::defoult_style);
 		~Button();
 
 		// ### Base Class ###
@@ -102,6 +102,6 @@ namespace DF
 		void resetStyle();
 		void setStyle(Button::Style* style);
 
-		void setFunction(FunctionInterface* function);
+		void setFunction(FunctionInterface<>* function);
 	};
 }

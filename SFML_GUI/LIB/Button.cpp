@@ -82,7 +82,7 @@ void DF::Button::Style::setStyle(Button* object)
 	}
 }
 
-DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface* function, Button::Style* style) :
+DF::Button::Button(Window* window, double x, double y, double w, double h, FunctionInterface<>* function, Button::Style* style) :
 	Element(window, x, y, w, h),
 	graphic_config(style),
 	fun_IF(nullptr),
@@ -90,7 +90,7 @@ DF::Button::Button(Window* window, double x, double y, double w, double h, Funct
 {
 	if (function == nullptr)
 	{
-		fun_IF = new FunctionInterface(nullptr, true);
+		fun_IF = new FunctionInterface<>(nullptr, true);
 	}
 	else
 	{
@@ -224,7 +224,7 @@ void DF::Button::setStyle(Button::Style* style)
 	resetStyle();
 }
 
-void DF::Button::setFunction(FunctionInterface* function)
+void DF::Button::setFunction(FunctionInterface<>* function)
 {
 	if (fun_IF->getDelete)
 	{

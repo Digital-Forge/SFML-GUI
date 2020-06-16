@@ -21,10 +21,10 @@
   <ItemGroup>
     <ClCompile Include="LIB\Base.cpp" />
     <ClCompile Include="LIB\Button.cpp" />
+    <ClCompile Include="LIB\CheckBox.cpp" />
     <ClCompile Include="LIB\Container.cpp" />
     <ClCompile Include="LIB\Element.cpp" />
     <ClCompile Include="LIB\FontAlbum.cpp" />
-    <ClCompile Include="LIB\FunctionInterface.cpp" />
     <ClCompile Include="LIB\Text.cpp" />
     <ClCompile Include="LIB\TxButton.cpp" />
     <ClCompile Include="LIB\Window.cpp" />
@@ -34,6 +34,7 @@
   <ItemGroup>
     <ClInclude Include="LIB\Base.h" />
     <ClInclude Include="LIB\Button.h" />
+    <ClInclude Include="LIB\CheckBox.h" />
     <ClInclude Include="LIB\Container.h" />
     <ClInclude Include="LIB\Element.h" />
     <ClInclude Include="LIB\FontAlbum.h" />
@@ -112,7 +113,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +129,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +147,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,7 +167,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)\SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LocalDebuggerWorkingDirectory);$(SolutionDir)SFML\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
