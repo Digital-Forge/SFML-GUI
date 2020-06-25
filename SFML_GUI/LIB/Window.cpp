@@ -52,7 +52,7 @@ unsigned int DF::Window::getVideoHeight()
 
 double DF::Window::getVideoDiagonal()
 {
-	return sqrt((double)vm.height * (double)vm.width);
+	return sqrt(((double)vm.height * (double)vm.height) + ((double)vm.width * (double)vm.width));
 }
 
 void DF::Window::setFPS(unsigned int fps)

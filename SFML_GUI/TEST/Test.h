@@ -5,6 +5,7 @@
 #include "LIB/FontAlbum.h"
 #include "LIB/Text.h"
 #include "LIB/TxButton.h"
+#include "LIB/CheckBox.h"
 
 class Test
 {

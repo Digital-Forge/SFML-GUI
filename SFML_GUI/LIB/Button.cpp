@@ -156,9 +156,9 @@ DF::Button* DF::Button::returnOrigin(Base* object)
 
 void DF::Button::videoReset()
 {
-	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
+	rect.setSize(sf::Vector2f(window->getVideoWidth() * w * 0.01, window->getVideoHeight() * h * 0.01));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
-	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	rect.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
 	rect.setOutlineThickness(graphic_config->outline_size * window->getVideoDiagonal() * 0.01);
 }
 
@@ -166,14 +166,14 @@ void DF::Button::setPosition(double x, double y)
 {
 	this->x = x;
 	this->y = y;
-	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	rect.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
 }
 
 void DF::Button::move(double x, double y)
 {
 	this->x += x;
 	this->y += y;
-	rect.setPosition(window->getVideoWidth() * (this->x * 0.01), window->getVideoHeight() * (this->y * 0.01));
+	rect.setPosition(window->getVideoWidth() * this->x * 0.01, window->getVideoHeight() * this->y * 0.01);
 }
 
 void DF::Button::setActive(bool a)
@@ -186,7 +186,7 @@ void DF::Button::setSize(double width, double height)
 {
 	w = width;
 	h = height;
-	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
+	rect.setSize(sf::Vector2f(window->getVideoWidth() * w * 0.01, window->getVideoHeight() * h * 0.01));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
 }
 

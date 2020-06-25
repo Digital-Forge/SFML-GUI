@@ -8,7 +8,7 @@ Test::Test()
 
 	fonts.add("TEST/Verdana.ttf");
 
-	button_style.setOutlineSize(0.1);
+	button_style.setOutlineSize(0.15);
 	button_style.setActiveOutlineColor(sf::Color::Red);
 	button_style.setActiveColor(sf::Color::Yellow);
 
@@ -18,7 +18,7 @@ Test::Test()
 
 	text_style.setFont(fonts.getFont(0));
 	text_style.setHook(DF::Text::Style::Hook::right);
-	text_style.setTextSize(5);
+	text_style.setTextSize(3);
 	
 
 	box.add(new DF::Button(window, 7, 4, 10, 5, new DF::FunctionInterface<>(&Test::buttonNum, this, true), &button_style));
@@ -28,7 +28,9 @@ Test::Test()
 	box.add(new DF::TxButton(window, 7, 22, 10, 5, "test button 2", new DF::FunctionInterface<>(&Test::Button2MoveIt, this, true), &tx_button_style));
 
 	box.add(new DF::Text(window, 99, 4, std::to_string(num), &text_style));
-	box.add(new DF::Text(window, 99, 10, std::to_string(num), &text_style));
+	box.add(new DF::Text(window, 99, 10, "Welcome", &text_style));
+
+	box.add(new DF::CheckBox(window, 50, 50, 10));
 
 }
 

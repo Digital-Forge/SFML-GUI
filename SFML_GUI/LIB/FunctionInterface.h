@@ -80,10 +80,10 @@ inline DF::FunctionInterface<void>::FunctionInterface(std::function<void()> func
 template<typename T>
 inline void DF::FunctionInterface<T>::function(T arg)
 {
-	func(arg);
+	if(func != nullptr)	func(arg);
 }
 
 inline void DF::FunctionInterface<void>::function(void)
 {
-	func();
+	if (func != nullptr) func();
 }

@@ -210,9 +210,9 @@ DF::TxButton* DF::TxButton::returnOrigin(Base* object)
 
 void DF::TxButton::videoReset()
 {
-	rect.setSize(sf::Vector2f(window->getVideoWidth() * (w * 0.01), window->getVideoHeight() * (h * 0.01)));
+	rect.setSize(sf::Vector2f(window->getVideoWidth() * w * 0.01, window->getVideoHeight() * h * 0.01));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
-	rect.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	rect.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
 	rect.setOutlineThickness(graphic_config->rect_outline_size * window->getVideoDiagonal() * 0.01);
 
 	textReset();
@@ -221,13 +221,13 @@ void DF::TxButton::videoReset()
 void DF::TxButton::setPosition(double x, double y)
 {
 	Button::setPosition(x, y);
-	txt.setPosition(window->getVideoWidth() * (this->x * 0.01), window->getVideoHeight() * (this->y * 0.01));
+	txt.setPosition(window->getVideoWidth() * this->x * 0.01, window->getVideoHeight() * this->y * 0.01);
 }
 
 void DF::TxButton::move(double x, double y)
 {
 	Button::move(x, y);
-	txt.setPosition(window->getVideoWidth() * (this->x * 0.01), window->getVideoHeight() * (this->y * 0.01));
+	txt.setPosition(window->getVideoWidth() * this->x * 0.01, window->getVideoHeight() * this->y * 0.01);
 }
 
 void DF::TxButton::setActive(bool a)

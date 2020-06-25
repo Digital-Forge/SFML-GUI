@@ -175,21 +175,21 @@ void DF::Text::videoReset()
 		_setText(buff);
 	}
 
-	txt.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	txt.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
 }
 
 void DF::Text::setPosition(double x, double y)
 {
 	this->x = x;
 	this->y = y;
-	txt.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
+	txt.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
 }
 
 void DF::Text::move(double x, double y)
 {
 	this->x += x;
 	this->y += y;
-	txt.setPosition(window->getVideoWidth() * (this->x * 0.01), window->getVideoHeight() * (this->y * 0.01));
+	txt.setPosition(window->getVideoWidth() * this->x * 0.01, window->getVideoHeight() * this->y * 0.01);
 }
 
 void DF::Text::setActive(bool a)
@@ -219,7 +219,7 @@ void DF::Text::setGlobalText(sf::String text)
 		txt.setOrigin(txt.getLocalBounds().width, txt.getLocalBounds().height * graphic_config->getCorrectLevel());
 		break;
 	case Style::Hook::center:
-		txt.setOrigin(txt.getLocalBounds().width / 2, txt.getLocalBounds().height * graphic_config->getCorrectLevel());
+		txt.setOrigin(txt.getLocalBounds().width * 0.5, txt.getLocalBounds().height * graphic_config->getCorrectLevel());
 		break;
 	}
 	last_set_text = true;
@@ -227,6 +227,7 @@ void DF::Text::setGlobalText(sf::String text)
 
 void DF::Text::resetStyle()
 {
+	videoReset();
 	graphic_config->setStyle(this);
 }
 
