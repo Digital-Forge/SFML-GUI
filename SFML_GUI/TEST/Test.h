@@ -6,6 +6,7 @@
 #include "LIB/Text.h"
 #include "LIB/TxButton.h"
 #include "LIB/CheckBox.h"
+#include "LIB/ProgressBar.h"
 
 class Test
 {
@@ -30,4 +31,7 @@ public:
 
 	void button1SetActive();
 	void Button2MoveIt();
+
+	void progressBarPlus();
+	void progressBarMinus();
 };

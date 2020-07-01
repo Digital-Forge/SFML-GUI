@@ -32,6 +32,9 @@ Test::Test()
 
 	box.add(new DF::CheckBox(window, 50, 50, 10));
 
+	box.add(new DF::ProgressBar(window, 50, 93, 90, 10));
+	box.add(new DF::TxButton(window, 5, 75, 5, 5, " - ", new DF::FunctionInterface<>(&Test::progressBarMinus, this, true), &tx_button_style));
+	box.add(new DF::TxButton(window, 12, 75, 5, 5, " + ", new DF::FunctionInterface<>(&Test::progressBarPlus, this, true), &tx_button_style));
 }
 
 Test::~Test()
@@ -80,4 +83,14 @@ void Test::button1SetActive()
 void Test::Button2MoveIt()
 {
 	DF::Button::returnOrigin(box.combo[3])->move(-0.1, 0);
+}
+
+void Test::progressBarPlus()
+{
+	DF::ProgressBar::returnOrigin(box.combo[7])->setProgress(DF::ProgressBar::returnOrigin(box.combo[7])->getProgress() + 1);
+}
+
+void Test::progressBarMinus()
+{
+	DF::ProgressBar::returnOrigin(box.combo[7])->setProgress(DF::ProgressBar::returnOrigin(box.combo[7])->getProgress() - 1);
 }

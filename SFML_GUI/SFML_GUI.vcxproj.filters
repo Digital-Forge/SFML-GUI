@@ -96,6 +96,9 @@
     <ClCompile Include="TEST\main.cpp">
       <Filter>Pliki źródłowe\test</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\ProgressBar.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Active</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="LIB\FunctionInterface.h">
       <Filter>Pliki nagłówkowe\LIB\Mechanic</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\ProgressBar.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Active</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
