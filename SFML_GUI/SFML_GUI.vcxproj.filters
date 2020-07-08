@@ -99,6 +99,9 @@
     <ClCompile Include="LIB\ProgressBar.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Active</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\TextBox.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="LIB\ProgressBar.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Active</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\TextBox.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
