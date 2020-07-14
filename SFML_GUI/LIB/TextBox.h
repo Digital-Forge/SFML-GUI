@@ -1,5 +1,7 @@
 #pragma once
 #include "Element.h"
+#include "FunctionInterface.h"
+#include <chrono>
 
 namespace DF
 {
@@ -22,10 +24,14 @@ namespace DF
 		// ### more ###
 		sf::RectangleShape rect;
 		sf::Vector2f mouse_poz;
+		sf::Event* events;
 		bool write_active;	
 		sf::Text txt[2];
 		sf::String text[2];
 		unsigned int limit_letters;
+		std::chrono::system_clock::time_point time; // time buffor to minimal time to next char if press button all time
+		bool press_buff;
+		DF::FunctionInterface<>* fun;
 
 	public:
 		class Style
@@ -55,6 +61,7 @@ namespace DF
 			// font
 			sf::Font* font;
 			double level_correct;
+			double distance_from_edge;
 			double text_outline_size;
 			double phantom_text_outline_size;
 			double rect_outline_size;
@@ -95,6 +102,9 @@ namespace DF
 			void setTextCorrectLevel(double level);
 			double getTextCorrectLevel();
 
+			void _setDistanceFromEdge(double size);
+			double _setDistanceFromEdge();
+
 			void setActiveTextColor(sf::Color color);
 			sf::Color getActiveTextColor();
 
@@ -125,6 +135,9 @@ namespace DF
 			void setPhantomTextOutlineSize(double size);
 			double getPhantomTextOutlineSize();
 
+			void setHook(Style::Hook hook);
+			Style::Hook getHook();
+
 		private:
 			void setStyle(TextBox* object);
 		};
@@ -135,7 +148,7 @@ namespace DF
 		DF::TextBox::Style* graphic_config;
 
 	public:
-		TextBox(Window* window, double x, double y, double w, double h, sf::String phantom_text = "", TextBox::Style* style = &TextBox::defoult_style);
+		TextBox(Window* window, sf::Event* events, double x, double y, double w, double h, sf::String phantom_text = "", TextBox::Style* style = &TextBox::defoult_style);
 		~TextBox();
 
 		// ### Base Class ###
@@ -171,5 +184,11 @@ namespace DF
 		void setPhantomText(sf::String text);
 
 		void setLettersLimit(unsigned int limit);
+
+		void setFunction(DF::FunctionInterface<>* fun);
+
+	protected:
+		void textGraphicScale(sf::Text &graf_txt, bool exact = false);
+
 	};
 }

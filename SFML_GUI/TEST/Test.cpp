@@ -20,6 +20,13 @@ Test::Test()
 	text_style.setHook(DF::Text::Style::Hook::right);
 	text_style.setTextSize(3);
 	
+	DF::TextBox::defoult_style.setFont(fonts.getFont(0));
+	DF::TextBox::defoult_style.setHook(DF::TextBox::Style::Hook::left);
+	texbox_style.setFont(fonts.getFont(0));
+	texbox_style.setHook(DF::TextBox::Style::Hook::center);
+	texbox_style2.setFont(fonts.getFont(0));
+	texbox_style2.setHook(DF::TextBox::Style::Hook::right);
+
 
 	box.add(new DF::Button(window, 7, 4, 10, 5, new DF::FunctionInterface<>(&Test::buttonNum, this, true), &button_style));
 	box.add(new DF::Button(window, 7, 10, 10, 5, new DF::FunctionInterface<>(&Test::buttonTextMove, this, true)));
@@ -30,11 +37,15 @@ Test::Test()
 	box.add(new DF::Text(window, 99, 4, std::to_string(num), &text_style));
 	box.add(new DF::Text(window, 99, 10, "Welcome", &text_style));
 
-	box.add(new DF::CheckBox(window, 50, 50, 10));
+	box.add(new DF::CheckBox(window, 50, 15, 5));
 
 	box.add(new DF::ProgressBar(window, 50, 93, 90, 10));
 	box.add(new DF::TxButton(window, 5, 75, 5, 5, " - ", new DF::FunctionInterface<>(&Test::progressBarMinus, this, true), &tx_button_style));
 	box.add(new DF::TxButton(window, 12, 75, 5, 5, " + ", new DF::FunctionInterface<>(&Test::progressBarPlus, this, true), &tx_button_style));
+
+	box.add(new DF::TextBox(window, &event, 15, 50, 25, 10, "Test"));
+	box.add(new DF::TextBox(window, &event, 50, 50, 25, 10, "Test", &texbox_style));
+	box.add(new DF::TextBox(window, &event, 85, 50, 25, 10, "Test", &texbox_style2));
 }
 
 Test::~Test()
@@ -50,7 +61,7 @@ void Test::loop()
 	while (window->isOpen())
 	{
 		// check all the window's events that were triggered since the last iteration of the loop
-		sf::Event event;
+		
 		while (window->_getWindow()->pollEvent(event))
 		{
 			// "close requested" event: we close the window

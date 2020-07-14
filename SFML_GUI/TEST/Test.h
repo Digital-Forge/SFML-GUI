@@ -7,14 +7,19 @@
 #include "LIB/TxButton.h"
 #include "LIB/CheckBox.h"
 #include "LIB/ProgressBar.h"
+#include "LIB/TextBox.h"
 
 class Test
 {
 	DF::Window* window;
+	sf::Event event;
 
 	DF::Button::Style button_style;
 	DF::TxButton::Style tx_button_style;
 	DF::Text::Style text_style;
+	DF::TextBox::Style texbox_style;
+	DF::TextBox::Style texbox_style2;
+
 	
 	DF::Container box;
 	DF::FontAlbum fonts;
