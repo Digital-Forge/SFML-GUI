@@ -46,6 +46,12 @@ Test::Test()
 	box.add(new DF::TextBox(window, &event, 15, 50, 25, 10, "Test"));
 	box.add(new DF::TextBox(window, &event, 50, 50, 25, 10, "Test", &texbox_style));
 	box.add(new DF::TextBox(window, &event, 85, 50, 25, 10, "Test", &texbox_style2));
+
+	box.add(new DF::RadioButtons(window, 15, 40, 1));
+
+	DF::RadioButtons::returnOrigin(box.combo[13])->add(50, 40);
+	(*DF::RadioButtons::returnOrigin(box.combo[13]))[0].setCheck(true);
+	//DF::RadioButtons::returnOrigin(box.combo[13])->clearAllCheck();
 }
 
 Test::~Test()

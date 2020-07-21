@@ -8,6 +8,7 @@
 #include "LIB/CheckBox.h"
 #include "LIB/ProgressBar.h"
 #include "LIB/TextBox.h"
+#include "LIB/RadioButtons.h"
 
 class Test
 {
