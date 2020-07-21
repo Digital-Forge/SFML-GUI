@@ -274,61 +274,64 @@ DF::TextBox::~TextBox()
 
 void DF::TextBox::event()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (active && visible)
 	{
-		mouse_poz = window->_getWindow()->mapPixelToCoords(sf::Mouse::getPosition(*(window->_getWindow())));
-
-		if ((mouse_poz.x > (rect.getPosition().x - (rect.getSize().x * 0.5)) && mouse_poz.x < (rect.getPosition().x + (rect.getSize().x * 0.5)))
-			&& (mouse_poz.y > (rect.getPosition().y - (rect.getSize().y * 0.5)) && mouse_poz.y < (rect.getPosition().y + (rect.getSize().y * 0.5))))
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			write_active = true;
-		}
-		else
-		{
-			write_active = false;
-		}
-	}
+			mouse_poz = window->_getWindow()->mapPixelToCoords(sf::Mouse::getPosition(*(window->_getWindow())));
 
-	if (write_active)
-	{
-		if (text[0].getSize() <= limit_letters || limit_letters == 0)
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+			if ((mouse_poz.x > (rect.getPosition().x - (rect.getSize().x * 0.5)) && mouse_poz.x < (rect.getPosition().x + (rect.getSize().x * 0.5)))
+				&& (mouse_poz.y > (rect.getPosition().y - (rect.getSize().y * 0.5)) && mouse_poz.y < (rect.getPosition().y + (rect.getSize().y * 0.5))))
 			{
-				write_active = false;
-				press_buff = false;
-
-				if (fun != nullptr)
-				{
-					fun->function();
-				}
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace))
-			{
-				if (!text[0].isEmpty() && (std::chrono::system_clock::now() > time + std::chrono::milliseconds(250) || !press_buff))
-				{
-					text[0].erase(text[0].getSize() - 1, 1);
-					txt[0].setString(text[0]);
-					textGraphicScale(txt[0], true);
-					time = std::chrono::system_clock::now();
-					press_buff = true;
-				}
-			}
-			else if (events->type == sf::Event::TextEntered)
-			{
-				//if (events->text.unicode < 128)
-				if(std::chrono::system_clock::now() > time + std::chrono::milliseconds(350) || !press_buff)
-				{
-					text[0] += (sf::String)(events->text.unicode);
-					txt[0].setString(text[0]);
-					textGraphicScale(txt[0]);
-					time = std::chrono::system_clock::now();
-					press_buff = true;
-				}
+				write_active = true;
 			}
 			else
 			{
-				press_buff = false;
+				write_active = false;
+			}
+		}
+
+		if (write_active)
+		{
+			if (text[0].getSize() <= limit_letters || limit_letters == 0)
+			{
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+				{
+					write_active = false;
+					press_buff = false;
+
+					if (fun != nullptr)
+					{
+						fun->function();
+					}
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace))
+				{
+					if (!text[0].isEmpty() && (std::chrono::system_clock::now() > time + std::chrono::milliseconds(250) || !press_buff))
+					{
+						text[0].erase(text[0].getSize() - 1, 1);
+						txt[0].setString(text[0]);
+						textGraphicScale(txt[0], true);
+						time = std::chrono::system_clock::now();
+						press_buff = true;
+					}
+				}
+				else if (events->type == sf::Event::TextEntered)
+				{
+					//if (events->text.unicode < 128)
+					if (std::chrono::system_clock::now() > time + std::chrono::milliseconds(350) || !press_buff)
+					{
+						text[0] += (sf::String)(events->text.unicode);
+						txt[0].setString(text[0]);
+						textGraphicScale(txt[0]);
+						time = std::chrono::system_clock::now();
+						press_buff = true;
+					}
+				}
+				else
+				{
+					press_buff = false;
+				}
 			}
 		}
 	}

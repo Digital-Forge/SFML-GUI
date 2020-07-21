@@ -30,78 +30,7 @@ namespace DF
 		sf::Text txt;
 
 	public:
-		class Style
-		{
-			friend class TxButton;
-		private:
-			// active true
-			sf::Color active_rect_color;
-			sf::Color active_rect_outline_color;
-
-			sf::Color active_text_color;
-			sf::Color active_text_outline_color;
-
-			// active false
-			sf::Color inactive_rect_color;
-			sf::Color inactive_rect_outline_color;
-
-			sf::Color inactive_text_color;
-			sf::Color inactive_text_outline_color;
-
-			// font
-			sf::Font* font;
-			double level_correct;
-			double text_outline_size;
-			double rect_outline_size;
-			double distance_from_edge;
-
-		public:
-			Style();
-			~Style();
-
-			// get & set element style
-			// # Button/rect
-			void setActiveButtonColor(sf::Color color);
-			sf::Color getActiveButtonColor();
-
-			void setActiveButtonOutlineColor(sf::Color color);
-			sf::Color getActiveButtonOutlineColor();
-
-			void setInActiveButtonColor(sf::Color color);
-			sf::Color getInActiveButtonColor();
-
-			void setInActiveButtonOutlineColor(sf::Color color);
-			sf::Color getInActiveButtonOutlineColor();
-
-			void setButtonOutlineSize(double size);
-			double getButtonOutlineSize();
-
-			// # text
-			void setFont(sf::Font* font);
-			void setCorrectLevel(double level);
-			double getCorrectLevel();
-
-			void setActiveTextColor(sf::Color color);
-			sf::Color getActiveTextColor();
-
-			void setActiveTextOutlineColor(sf::Color color);
-			sf::Color getActiveTextOutlineColor();
-
-			void setInActiveTextColor(sf::Color color);
-			sf::Color getInActiveTextColor();
-
-			void setInActiveTextOutlineColor(sf::Color color);
-			sf::Color getInActiveTextOutlineColor();
-
-			void setTextOutlineSize(double size);
-			double getTextOutlineSize();
-
-			void _setDistanceFromEdge(double size);
-			double _setDistanceFromEdge();
-
-		private:
-			void setStyle(TxButton* object);
-		};
+		class Style;
 
 		static Style defoult_style;
 
@@ -148,7 +77,78 @@ namespace DF
 
 		protected:
 			void textReset();
-		public:
+	};
 
+	class TxButton::Style
+	{
+		friend class TxButton;
+	private:
+		// active true
+		sf::Color active_rect_color;
+		sf::Color active_rect_outline_color;
+
+		sf::Color active_text_color;
+		sf::Color active_text_outline_color;
+
+		// active false
+		sf::Color inactive_rect_color;
+		sf::Color inactive_rect_outline_color;
+
+		sf::Color inactive_text_color;
+		sf::Color inactive_text_outline_color;
+
+		// font
+		sf::Font* font;
+		double level_correct;
+		double text_outline_size;
+		double rect_outline_size;
+		double distance_from_edge;
+
+	public:
+		Style();
+		~Style();
+
+		// get & set element style
+		// # Button/rect
+		void setActiveButtonColor(sf::Color color);
+		sf::Color getActiveButtonColor();
+
+		void setActiveButtonOutlineColor(sf::Color color);
+		sf::Color getActiveButtonOutlineColor();
+
+		void setInActiveButtonColor(sf::Color color);
+		sf::Color getInActiveButtonColor();
+
+		void setInActiveButtonOutlineColor(sf::Color color);
+		sf::Color getInActiveButtonOutlineColor();
+
+		void setButtonOutlineSize(double size);
+		double getButtonOutlineSize();
+
+		// # text
+		void setFont(sf::Font* font);
+		void setCorrectLevel(double level);
+		double getCorrectLevel();
+
+		void setActiveTextColor(sf::Color color);
+		sf::Color getActiveTextColor();
+
+		void setActiveTextOutlineColor(sf::Color color);
+		sf::Color getActiveTextOutlineColor();
+
+		void setInActiveTextColor(sf::Color color);
+		sf::Color getInActiveTextColor();
+
+		void setInActiveTextOutlineColor(sf::Color color);
+		sf::Color getInActiveTextOutlineColor();
+
+		void setTextOutlineSize(double size);
+		double getTextOutlineSize();
+
+		void _setDistanceFromEdge(double size);
+		double _setDistanceFromEdge();
+
+	private:
+		void setStyle(TxButton* object);
 	};
 }

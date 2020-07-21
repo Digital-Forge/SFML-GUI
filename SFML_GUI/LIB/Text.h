@@ -26,65 +26,7 @@ namespace DF
 		sf::String text[2];
 
 	public:
-		class Style
-		{
-			friend class Text;
-		private:
-			// active true
-			sf::Color active_text_color;
-			sf::Color active_outline_color;
-
-			// active false
-			sf::Color inactive_text_color;
-			sf::Color inactive_outline_color;
-			//all
-			sf::Font* font;
-			double outline_size;
-			double font_size;
-			double level_correct;
-
-		public:
-			enum class Hook
-			{
-				left,
-				center,
-				right
-			};
-		private:
-			Hook hook;
-		public:
-			Style();
-			~Style();
-
-			// get & set element style
-			void setFont(sf::Font* font);
-			void setCorrectLevel(double level);
-			double getCorrectLevel();
-
-			void setTextSize(double size);
-			double getTextSize();
-
-			void setHook(Style::Hook hook);
-			Style::Hook getHook();
-
-			void setActiveColor(sf::Color color);
-			sf::Color getActiveColor();
-
-			void setActiveOutlineColor(sf::Color color);
-			sf::Color getActiveOutlineColor();
-
-			void setInActiveColor(sf::Color color);
-			sf::Color getInActiveColor();
-
-			void setInActiveOutlineColor(sf::Color color);
-			sf::Color getInActiveOutlineColor();
-
-			void setOutlineSize(double size);
-			double getOutlineSize();
-
-		private:
-			void setStyle(Text* object);
-		};
+		class Style;
 
 		static Style defoult_style;
 
@@ -122,4 +64,65 @@ namespace DF
 		void resetStyle();
 		void setStyle(Text::Style* style);
 	};
+
+	class Text::Style
+	{
+		friend class Text;
+	private:
+		// active true
+		sf::Color active_text_color;
+		sf::Color active_outline_color;
+
+		// active false
+		sf::Color inactive_text_color;
+		sf::Color inactive_outline_color;
+		//all
+		sf::Font* font;
+		double outline_size;
+		double font_size;
+		double level_correct;
+
+	public:
+		enum class Hook
+		{
+			left,
+			center,
+			right
+		};
+	private:
+		Hook hook;
+	public:
+		Style();
+		~Style();
+
+		// get & set element style
+		void setFont(sf::Font* font);
+		void setCorrectLevel(double level);
+		double getCorrectLevel();
+
+		void setTextSize(double size);
+		double getTextSize();
+
+		void setHook(Style::Hook hook);
+		Style::Hook getHook();
+
+		void setActiveColor(sf::Color color);
+		sf::Color getActiveColor();
+
+		void setActiveOutlineColor(sf::Color color);
+		sf::Color getActiveOutlineColor();
+
+		void setInActiveColor(sf::Color color);
+		sf::Color getInActiveColor();
+
+		void setInActiveOutlineColor(sf::Color color);
+		sf::Color getInActiveOutlineColor();
+
+		void setOutlineSize(double size);
+		double getOutlineSize();
+
+	private:
+		void setStyle(Text* object);
+	};
+
 }

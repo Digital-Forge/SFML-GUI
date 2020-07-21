@@ -30,65 +30,7 @@ namespace DF
 		bool check;
 
 	public:
-		class Style
-		{
-			friend class CheckBox;
-		private:
-			// active true
-			sf::Color active_rect_color;
-			sf::Color active_outline_color;
-			sf::Color active_symbol_color;
-
-			// active false
-			sf::Color inactive_rect_color;
-			sf::Color inactive_outline_color;
-			sf::Color inactive_symbol_color;
-
-			//all
-			double symbol_size;
-			double outline_size;
-			double symbol_angle_ray_left, symbol_angle_ray_right, symbol_scale;
-		public:
-			Style();
-			~Style();
-
-			// get & set element style
-			void setActiveColor(sf::Color color);
-			sf::Color getActiveColor();
-
-			void setActiveOutlineColor(sf::Color color);
-			sf::Color getActiveOutlineColor();
-
-			void setInActiveColor(sf::Color color);
-			sf::Color getInActiveColor();
-
-			void setInActiveOutlineColor(sf::Color color);
-			sf::Color getInActiveOutlineColor();
-
-			void setActiveSymbolColor(sf::Color color);
-			sf::Color getActiveSymbolColor();
-
-			void setInActiveSymbolColor(sf::Color color);
-			sf::Color getInActiveSymbolColor();
-
-			void setOutlineSize(double size);
-			double getOutlineSize();
-
-			void setSymbolSize(double size);
-			double getSymbolSize();
-
-			void setSymbolRayScale(double scale);
-			double getSymbolRayScale();
-
-			void setSymbolRayLeftAngle(double angle);
-			double setSymbolRayLeftAngle();
-
-			void setSymbolRayRightAngle(double angle);
-			double setSymbolRayRightAngle();
-
-		private:
-			void setStyle(CheckBox* object);
-		};
+		class Style;
 
 		static Style defoult_style;
 
@@ -139,4 +81,65 @@ namespace DF
 	protected:
 		void checkExecute();
 	};
+
+	class CheckBox::Style
+	{
+		friend class CheckBox;
+	private:
+		// active true
+		sf::Color active_rect_color;
+		sf::Color active_outline_color;
+		sf::Color active_symbol_color;
+
+		// active false
+		sf::Color inactive_rect_color;
+		sf::Color inactive_outline_color;
+		sf::Color inactive_symbol_color;
+
+		//all
+		double symbol_size;
+		double outline_size;
+		double symbol_angle_ray_left, symbol_angle_ray_right, symbol_scale;
+	public:
+		Style();
+		~Style();
+
+		// get & set element style
+		void setActiveColor(sf::Color color);
+		sf::Color getActiveColor();
+
+		void setActiveOutlineColor(sf::Color color);
+		sf::Color getActiveOutlineColor();
+
+		void setInActiveColor(sf::Color color);
+		sf::Color getInActiveColor();
+
+		void setInActiveOutlineColor(sf::Color color);
+		sf::Color getInActiveOutlineColor();
+
+		void setActiveSymbolColor(sf::Color color);
+		sf::Color getActiveSymbolColor();
+
+		void setInActiveSymbolColor(sf::Color color);
+		sf::Color getInActiveSymbolColor();
+
+		void setOutlineSize(double size);
+		double getOutlineSize();
+
+		void setSymbolSize(double size);
+		double getSymbolSize();
+
+		void setSymbolRayScale(double scale);
+		double getSymbolRayScale();
+
+		void setSymbolRayLeftAngle(double angle);
+		double setSymbolRayLeftAngle();
+
+		void setSymbolRayRightAngle(double angle);
+		double setSymbolRayRightAngle();
+
+	private:
+		void setStyle(CheckBox* object);
+	};
+
 }

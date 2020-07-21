@@ -27,42 +27,7 @@ namespace DF
 		FunctionInterface<>* fun_IF;
 
 	public:
-		class Style
-		{
-			friend class Button;
-		private:
-			// active true
-			sf::Color active_rect_color;
-			sf::Color active_outline_color;
-			
-			// active false
-			sf::Color inactive_rect_color;
-			sf::Color inactive_outline_color;
-			//all
-			double outline_size;
-		public:
-			Style();
-			~Style();
-
-			// get & set element style
-			void setActiveColor(sf::Color color);
-			sf::Color getActiveColor();
-
-			void setActiveOutlineColor(sf::Color color);
-			sf::Color getActiveOutlineColor();
-
-			void setInActiveColor(sf::Color color);
-			sf::Color getInActiveColor();
-
-			void setInActiveOutlineColor(sf::Color color);
-			sf::Color getInActiveOutlineColor();
-
-			void setOutlineSize(double size);
-			double getOutlineSize();
-
-		private:
-			void setStyle(Button* object);
-		};
+		class Style;
 
 		static Style defoult_style;
 
@@ -103,5 +68,42 @@ namespace DF
 		void setStyle(Button::Style* style);
 
 		void setFunction(FunctionInterface<>* function);
+	};
+
+	class Button::Style
+	{
+		friend class Button;
+	private:
+		// active true
+		sf::Color active_rect_color;
+		sf::Color active_outline_color;
+
+		// active false
+		sf::Color inactive_rect_color;
+		sf::Color inactive_outline_color;
+		//all
+		double outline_size;
+	public:
+		Style();
+		~Style();
+
+		// get & set element style
+		void setActiveColor(sf::Color color);
+		sf::Color getActiveColor();
+
+		void setActiveOutlineColor(sf::Color color);
+		sf::Color getActiveOutlineColor();
+
+		void setInActiveColor(sf::Color color);
+		sf::Color getInActiveColor();
+
+		void setInActiveOutlineColor(sf::Color color);
+		sf::Color getInActiveOutlineColor();
+
+		void setOutlineSize(double size);
+		double getOutlineSize();
+
+	private:
+		void setStyle(Button* object);
 	};
 }
