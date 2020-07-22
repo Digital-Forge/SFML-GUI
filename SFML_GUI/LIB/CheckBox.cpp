@@ -194,15 +194,7 @@ DF::CheckBox* DF::CheckBox::returnOrigin(Base* object)
 {
 	CheckBox* to_origin;
 	to_origin = dynamic_cast<CheckBox*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::CheckBox::videoReset()

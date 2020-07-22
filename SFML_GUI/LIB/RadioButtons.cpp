@@ -34,15 +34,7 @@ DF::RadioButtons* DF::RadioButtons::returnOrigin(Base* object)
 {
 	RadioButtons* to_origin;
 	to_origin = dynamic_cast<RadioButtons*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::RadioButtons::videoReset()
@@ -202,15 +194,7 @@ DF::RadioButtons::Buttons* DF::RadioButtons::Buttons::returnOrigin(Base* object)
 {
 	Buttons* to_origin;
 	to_origin = dynamic_cast<Buttons*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::RadioButtons::Buttons::videoReset()

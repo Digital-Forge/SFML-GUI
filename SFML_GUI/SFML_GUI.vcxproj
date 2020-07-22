@@ -25,6 +25,7 @@
     <ClCompile Include="LIB\Container.cpp" />
     <ClCompile Include="LIB\Element.cpp" />
     <ClCompile Include="LIB\FontAlbum.cpp" />
+    <ClCompile Include="LIB\Line.cpp" />
     <ClCompile Include="LIB\ProgressBar.cpp" />
     <ClCompile Include="LIB\RadioButtons.cpp" />
     <ClCompile Include="LIB\Text.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="LIB\Element.h" />
     <ClInclude Include="LIB\FontAlbum.h" />
     <ClInclude Include="LIB\FunctionInterface.h" />
+    <ClInclude Include="LIB\Line.h" />
     <ClInclude Include="LIB\ProgressBar.h" />
     <ClInclude Include="LIB\RadioButtons.h" />
     <ClInclude Include="LIB\Text.h" />

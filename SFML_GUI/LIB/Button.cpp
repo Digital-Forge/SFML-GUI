@@ -143,15 +143,7 @@ DF::Button* DF::Button::returnOrigin(Base* object)
 {
 	Button* to_origin;
 	to_origin = dynamic_cast<Button*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::Button::videoReset()

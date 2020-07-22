@@ -197,15 +197,7 @@ DF::TxButton* DF::TxButton::returnOrigin(Base* object)
 {
 	TxButton* to_origin;
 	to_origin = dynamic_cast<TxButton*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::TxButton::videoReset()

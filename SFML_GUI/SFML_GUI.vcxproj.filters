@@ -105,6 +105,9 @@
     <ClCompile Include="LIB\RadioButtons.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Interactive</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\Line.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Designe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="LIB\RadioButtons.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Line.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Designe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

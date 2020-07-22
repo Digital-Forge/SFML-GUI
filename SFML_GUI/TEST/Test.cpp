@@ -52,6 +52,8 @@ Test::Test()
 	DF::RadioButtons::returnOrigin(box.combo[13])->add(50, 40);
 	(*DF::RadioButtons::returnOrigin(box.combo[13]))[0].setCheck(true);
 	//DF::RadioButtons::returnOrigin(box.combo[13])->clearAllCheck();
+
+	box.add(new DF::Line(window, 33, 75, 33, 25));
 }
 
 Test::~Test()

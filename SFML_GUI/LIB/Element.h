@@ -34,7 +34,7 @@ namespace DF
 		// ### more function ###
 
 		// position & size config
-		virtual void setPosition(double x, double y);
+		void setPosition(double x, double y);
 		virtual void move(double x, double y);
 
 

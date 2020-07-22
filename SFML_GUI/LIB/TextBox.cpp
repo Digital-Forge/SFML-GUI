@@ -357,15 +357,7 @@ DF::TextBox* DF::TextBox::returnOrigin(Base* object)
 {
 	TextBox* to_origin;
 	to_origin = dynamic_cast<TextBox*>(object);
-
-	if (to_origin == nullptr)
-	{
-		return nullptr;
-	}
-	else
-	{
-		return to_origin;
-	}
+	return to_origin;
 }
 
 void DF::TextBox::videoReset()

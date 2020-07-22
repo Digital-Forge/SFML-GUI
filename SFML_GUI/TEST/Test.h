@@ -9,6 +9,7 @@
 #include "LIB/ProgressBar.h"
 #include "LIB/TextBox.h"
 #include "LIB/RadioButtons.h"
+#include "LIB/Line.h";
 
 class Test
 {
