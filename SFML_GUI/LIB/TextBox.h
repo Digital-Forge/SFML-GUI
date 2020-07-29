@@ -32,6 +32,7 @@ namespace DF
 		std::chrono::system_clock::time_point time; // time buffor to minimal time to next char if press button all time
 		bool press_buff;
 		DF::FunctionInterface<>* fun;
+		DF::TextBox* next_box; // to activated next textbox (press TAB)
 
 	public:
 		class Style;
@@ -80,6 +81,8 @@ namespace DF
 		void setLettersLimit(unsigned int limit);
 
 		void setFunction(DF::FunctionInterface<>* fun);
+
+		void setNextTextBox(DF::TextBox* next);
 
 	protected:
 		void textGraphicScale(sf::Text &graf_txt, bool exact = false);

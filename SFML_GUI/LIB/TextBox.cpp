@@ -305,6 +305,11 @@ void DF::TextBox::event()
 						fun->function();
 					}
 				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
+				{
+					write_active = false;
+					next_box->write_active = true;
+				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace))
 				{
 					if (!text[0].isEmpty() && (std::chrono::system_clock::now() > time + std::chrono::milliseconds(250) || !press_buff))
@@ -443,6 +448,11 @@ void DF::TextBox::setFunction(DF::FunctionInterface<>* fun)
 		}
 	}
 	this->fun = fun;
+}
+
+void DF::TextBox::setNextTextBox(DF::TextBox* next)
+{
+	next_box = next;
 }
 
 void DF::TextBox::textGraphicScale(sf::Text& graf_txt, bool exact)
