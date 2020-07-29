@@ -28,6 +28,7 @@
     <ClCompile Include="LIB\Line.cpp" />
     <ClCompile Include="LIB\ProgressBar.cpp" />
     <ClCompile Include="LIB\RadioButtons.cpp" />
+    <ClCompile Include="LIB\Rect.cpp" />
     <ClCompile Include="LIB\Text.cpp" />
     <ClCompile Include="LIB\TextBox.cpp" />
     <ClCompile Include="LIB\TxButton.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="LIB\Line.h" />
     <ClInclude Include="LIB\ProgressBar.h" />
     <ClInclude Include="LIB\RadioButtons.h" />
+    <ClInclude Include="LIB\Rect.h" />
     <ClInclude Include="LIB\Text.h" />
     <ClInclude Include="LIB\TextBox.h" />
     <ClInclude Include="LIB\TxButton.h" />

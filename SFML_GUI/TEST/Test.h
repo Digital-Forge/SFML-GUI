@@ -10,6 +10,7 @@
 #include "LIB/TextBox.h"
 #include "LIB/RadioButtons.h"
 #include "LIB/Line.h";
+#include "LIB/Rect.h"
 
 class Test
 {
@@ -22,7 +23,8 @@ class Test
 	DF::TextBox::Style texbox_style;
 	DF::TextBox::Style texbox_style2;
 
-	
+	DF::Rect* text_background;
+
 	DF::Container box;
 	DF::FontAlbum fonts;
 
@@ -41,4 +43,8 @@ public:
 
 	void progressBarPlus();
 	void progressBarMinus();
+
+	void radioButton1();
+	void radioButton2();
+	void radioButton3();
 };

@@ -16,7 +16,7 @@ DF::TextBox::Style::Style() :
 	font(nullptr),
 	level_correct(1.5),
 	distance_from_edge(0.8),
-	text_outline_size(0.2),
+	text_outline_size(0.0),
 	phantom_text_outline_size(0.2),
 	rect_outline_size(0.5),
 	hook(Style::Hook::left)

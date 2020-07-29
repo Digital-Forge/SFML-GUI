@@ -47,18 +47,23 @@ Test::Test()
 	box.add(new DF::TextBox(window, &event, 50, 50, 25, 10, "Test", &texbox_style));
 	box.add(new DF::TextBox(window, &event, 85, 50, 25, 10, "Test", &texbox_style2));
 
-	box.add(new DF::RadioButtons(window, 15, 40, 1));
+	box.add(new DF::RadioButtons(window, 15, 40, 1, new DF::FunctionInterface<>(&Test::radioButton1, this, true)));
 
-	DF::RadioButtons::returnOrigin(box.combo[13])->add(50, 40);
+	DF::RadioButtons::returnOrigin(box.combo[13])->add(50, 40, new DF::FunctionInterface<>(&Test::radioButton2, this, true));
+	DF::RadioButtons::returnOrigin(box.combo[13])->add(85, 40, new DF::FunctionInterface<>(&Test::radioButton3, this, true));
 	(*DF::RadioButtons::returnOrigin(box.combo[13]))[0].setCheck(true);
+	(*DF::RadioButtons::returnOrigin(box.combo[13]))[0].goFunction();
 	//DF::RadioButtons::returnOrigin(box.combo[13])->clearAllCheck();
 
 	box.add(new DF::Line(window, 33, 75, 33, 25));
+
+	text_background = new DF::Rect(window, 92, 7, 18, 15);
 }
 
 Test::~Test()
 {
 	box.deleteALL();
+	delete text_background;
 	delete window;
 }
 
@@ -77,8 +82,11 @@ void Test::loop()
 				window->_getWindow()->close();
 		}
 		box.event();
-		
+
+		text_background->show();
+
 		box.show();
+
 		window->display(sf::Color::White);
 	}
 }
@@ -112,4 +120,25 @@ void Test::progressBarPlus()
 void Test::progressBarMinus()
 {
 	DF::ProgressBar::returnOrigin(box.combo[7])->setProgress(DF::ProgressBar::returnOrigin(box.combo[7])->getProgress() - 1);
+}
+
+void Test::radioButton1()
+{
+	DF::TextBox::returnOrigin(box.combo[10])->setActive(true);
+	DF::TextBox::returnOrigin(box.combo[11])->setActive(false);
+	DF::TextBox::returnOrigin(box.combo[12])->setActive(false);
+}
+
+void Test::radioButton2()
+{
+	DF::TextBox::returnOrigin(box.combo[10])->setActive(false);
+	DF::TextBox::returnOrigin(box.combo[11])->setActive(true);
+	DF::TextBox::returnOrigin(box.combo[12])->setActive(false);
+}
+
+void Test::radioButton3()
+{
+	DF::TextBox::returnOrigin(box.combo[10])->setActive(false);
+	DF::TextBox::returnOrigin(box.combo[11])->setActive(false);
+	DF::TextBox::returnOrigin(box.combo[12])->setActive(true);
 }

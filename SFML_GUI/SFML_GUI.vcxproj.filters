@@ -108,6 +108,9 @@
     <ClCompile Include="LIB\Line.cpp">
       <Filter>Pliki źródłowe\LIB\Elements\Designe</Filter>
     </ClCompile>
+    <ClCompile Include="LIB\Rect.cpp">
+      <Filter>Pliki źródłowe\LIB\Elements\Designe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LIB\Base.h">
@@ -153,6 +156,9 @@
       <Filter>Pliki nagłówkowe\LIB\Elements\Interactive</Filter>
     </ClInclude>
     <ClInclude Include="LIB\Line.h">
+      <Filter>Pliki nagłówkowe\LIB\Elements\Designe</Filter>
+    </ClInclude>
+    <ClInclude Include="LIB\Rect.h">
       <Filter>Pliki nagłówkowe\LIB\Elements\Designe</Filter>
     </ClInclude>
   </ItemGroup>
