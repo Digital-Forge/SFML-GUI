@@ -84,6 +84,8 @@ namespace DF
 
 		void setNextTextBox(DF::TextBox* next);
 
+		void setActiveWrite(bool a);
+
 	protected:
 		void textGraphicScale(sf::Text &graf_txt, bool exact = false);
 
@@ -113,6 +115,16 @@ namespace DF
 		sf::Color inactive_phantom_text_color;
 		sf::Color inactive_phantom_text_outline_color;
 
+		// active write
+		sf::Color write_rect_color;
+		sf::Color write_rect_outline_color;
+
+		sf::Color write_text_color;
+		sf::Color write_text_outline_color;
+
+		sf::Color write_phantom_text_color;
+		sf::Color write_phantom_text_outline_color;
+
 		// font
 		sf::Font* font;
 		double level_correct;
@@ -120,6 +132,7 @@ namespace DF
 		double text_outline_size;
 		double phantom_text_outline_size;
 		double rect_outline_size;
+		double rect_outline_size_write;
 
 	public:
 		enum class Hook
