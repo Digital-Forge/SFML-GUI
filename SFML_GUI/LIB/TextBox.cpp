@@ -13,12 +13,19 @@ DF::TextBox::Style::Style() :
 	inactive_text_outline_color(sf::Color::Black),
 	inactive_phantom_text_color(sf::Color(0x5F5F5FFF)),
 	inactive_phantom_text_outline_color(sf::Color(0x5F5F5FFF)),
+	write_rect_color(sf::Color(0x9F9F9FFF)),
+	write_rect_outline_color(sf::Color::Black),
+	write_text_color(sf::Color::Black),
+	write_text_outline_color(sf::Color::Black),
+	write_phantom_text_color(sf::Color(0xAFAFAFFF)),
+	write_phantom_text_outline_color(sf::Color::Black),
 	font(nullptr),
 	level_correct(1.5),
 	distance_from_edge(0.8),
 	text_outline_size(0.0),
 	phantom_text_outline_size(0.2),
 	rect_outline_size(0.5),
+	rect_outline_size_write(0.7),
 	hook(Style::Hook::left)
 {
 }
@@ -224,12 +231,26 @@ void DF::TextBox::Style::setStyle(TextBox* object)
 
 	if (object->active)
 	{
-		object->rect.setFillColor(active_rect_color);
-		object->rect.setOutlineColor(active_rect_outline_color);
-		object->txt[0].setFillColor(active_text_color);
-		object->txt[0].setOutlineColor(active_text_outline_color);
-		object->txt[1].setFillColor(active_phantom_text_color);
-		object->txt[1].setOutlineColor(active_phantom_text_outline_color);
+		if (object->write_active)
+		{
+			object->rect.setOutlineThickness(object->window->getVideoDiagonal() * rect_outline_size_write * 0.01);
+
+			object->rect.setFillColor(write_rect_color);
+			object->rect.setOutlineColor(write_rect_outline_color);
+			object->txt[0].setFillColor(write_text_color);
+			object->txt[0].setOutlineColor(write_text_outline_color);
+			object->txt[1].setFillColor(write_phantom_text_color);
+			object->txt[1].setOutlineColor(write_phantom_text_outline_color);
+		}
+		else
+		{
+			object->rect.setFillColor(active_rect_color);
+			object->rect.setOutlineColor(active_rect_outline_color);
+			object->txt[0].setFillColor(active_text_color);
+			object->txt[0].setOutlineColor(active_text_outline_color);
+			object->txt[1].setFillColor(active_phantom_text_color);
+			object->txt[1].setOutlineColor(active_phantom_text_outline_color);
+		}
 	}
 	else
 	{
@@ -250,7 +271,8 @@ DF::TextBox::TextBox(Window* window, sf::Event* events, double x, double y, doub
 	limit_letters(0),
 	time(std::chrono::system_clock::now()),
 	press_buff(false),
-	fun(nullptr)
+	fun(nullptr),
+	next_box(nullptr)
 {
 	text[0] = "";
 	text[1] = phantom_text;
@@ -283,11 +305,11 @@ void DF::TextBox::event()
 			if ((mouse_poz.x > (rect.getPosition().x - (rect.getSize().x * 0.5)) && mouse_poz.x < (rect.getPosition().x + (rect.getSize().x * 0.5)))
 				&& (mouse_poz.y > (rect.getPosition().y - (rect.getSize().y * 0.5)) && mouse_poz.y < (rect.getPosition().y + (rect.getSize().y * 0.5))))
 			{
-				write_active = true;
+				setActiveWrite(true);
 			}
 			else
 			{
-				write_active = false;
+				setActiveWrite(false);
 			}
 		}
 
@@ -307,8 +329,12 @@ void DF::TextBox::event()
 				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
 				{
-					write_active = false;
-					next_box->write_active = true;
+					if (!press_buff && next_box != nullptr)
+					{
+						setActiveWrite(false);
+						next_box->setActiveWrite(true);
+						next_box->press_buff = true;
+					}
 				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backspace))
 				{
@@ -370,7 +396,15 @@ void DF::TextBox::videoReset()
 	rect.setSize(sf::Vector2f(window->getVideoWidth() * w * 0.01, window->getVideoHeight() * h * 0.01));
 	rect.setOrigin(rect.getSize().x * 0.5, rect.getSize().y * 0.5);
 	rect.setPosition(window->getVideoWidth() * x * 0.01, window->getVideoHeight() * y * 0.01);
-	rect.setOutlineThickness(graphic_config->rect_outline_size * window->getVideoDiagonal() * 0.01);
+
+	if (write_active)
+	{
+		rect.setOutlineThickness(graphic_config->rect_outline_size_write * window->getVideoDiagonal() * 0.01);
+	}
+	else
+	{
+		rect.setOutlineThickness(graphic_config->rect_outline_size * window->getVideoDiagonal() * 0.01);
+	}
 
 	textGraphicScale(txt[0], true);
 	textGraphicScale(txt[1], true);
@@ -455,6 +489,13 @@ void DF::TextBox::setNextTextBox(DF::TextBox* next)
 	next_box = next;
 }
 
+void DF::TextBox::setActiveWrite(bool a)
+{
+	write_active = a;
+	graphic_config->setStyle(this);
+	videoReset();
+}
+
 void DF::TextBox::textGraphicScale(sf::Text& graf_txt, bool exact)
 {
 	graf_txt.setOrigin(graf_txt.getLocalBounds().width * 0.5, graf_txt.getLocalBounds().height * 0.5);
@@ -485,22 +526,18 @@ void DF::TextBox::textGraphicScale(sf::Text& graf_txt, bool exact)
 		switch (graphic_config->hook)
 		{
 		case Style::Hook::left:
-
 			graf_txt.setOrigin(0, graf_txt.getLocalBounds().height * 0.5 * graphic_config->getTextCorrectLevel());
 			graf_txt.setPosition(window->getVideoWidth() * (x * 0.01) - (rect.getSize().x * 0.5), window->getVideoHeight() * (y * 0.01));
-
 			break;
-		case Style::Hook::center:
 
+		case Style::Hook::center:
 			graf_txt.setOrigin(graf_txt.getLocalBounds().width * 0.5, graf_txt.getLocalBounds().height * 0.5 * graphic_config->getTextCorrectLevel());
 			graf_txt.setPosition(window->getVideoWidth() * (x * 0.01), window->getVideoHeight() * (y * 0.01));
-
 			break;
-		case Style::Hook::right:
 
+		case Style::Hook::right:
 			graf_txt.setOrigin(graf_txt.getLocalBounds().width, graf_txt.getLocalBounds().height * 0.5 * graphic_config->getTextCorrectLevel());
 			graf_txt.setPosition(window->getVideoWidth() * (x * 0.01) + (rect.getSize().x * 0.5), window->getVideoHeight() * (y * 0.01));
-
 			break;
 		}
 	}
